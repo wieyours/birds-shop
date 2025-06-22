@@ -10,7 +10,7 @@ Também há a opção de "Histórico" (armazena todos os registros já salvos) q
 ![alt text](image-1.png)
 ### Modal do Histórico
 ![alt text](image-2.png)
-## API utilizada
+## Biblioteca utilizada
 
 Também foi utilizada a biblioteca SweetAlert2 [https://sweetalert2.github.io/] para a geração dos modais abaixo:
 

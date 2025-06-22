@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page">
+        <form method="POST" class="formLogin">
+            <h1>LOGIN</h1>
+            <p>Digite os seus dados para acessar o sistema.</p>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required />
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite seu e-mail" required />
+            <a href="/">Esqueci minha senha</a>
+            <input type="submit" value="Acessar" class="btn" id="btnLogin"/>
+        </form>
+    </div>
+    <script>
+        
+  document.querySelector(".formLogin").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("password").value.trim();
+
+    if (!email || !senha) {
+      alert("Preencha e-mail e senha!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, senha })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        window.location.href = "index.html";
+      } else {
+        alert("E-mail ou senha inválidos!");
+      }
+    } catch (err) {
+      console.error("Erro ao tentar login:", err);
+      alert("Erro no servidor.");
+    }
+  });
+
+</script>
+</body>
+</html>

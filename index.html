@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BIRD SHOP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="historyModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>HISTÓRICO DOS REGISTROS</h2>
+
+    <div class="history-filter">
+      <input type="text" id="cpfFilter" placeholder="Digite o CPF para filtrar" />
+      <button onclick="filtrarHistoricoPorCpf()">Filtrar</button>
+    </div>
+
+    <table id="historyTable">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Ave</th>
+          <th>Valor total (R$)</th>
+          <th>Nome Cliente</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+  <header>
+   <!-- <div id="loginStatus" style="position: absolute; top: 20px; right: 20px;">
+  <button id="btnLoginStatus" style="
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  ">Entrar</button>
+</div> -->
+
+    <div class="fundo">
+      <div class="overlay"></div>
+      <div class="conteudo">
+        <h1>Qual a ave de hoje?</h1>
+        <div class="radio-group">
+          <input type="radio" id="arara" name="bd" onchange="getBird(1)" checked />
+          <label for="arara">Arara</label>
+          <input type="radio" id="papagaio" name="bd" onchange="getBird(2)" />
+          <label for="papagaio">Papagaio</label>
+          <input type="radio" id="periquito" name="bd" onchange="getBird(3)" />
+          <label for="periquito">Periquito</label>
+          <input type="radio" id="cacatua" name="bd" onchange="getBird(4)" />
+          <label for="cacatua">Cacatua</label>
+        </div>
+
+        <div class="body-container">
+          <div class="others-container">
+            <div class="dados"></div>
+            <div>
+              <button style="float: right;" onclick="confirmRegistration()">Registrar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-container">
+          <h2>TOTAL: R$ <span id="price"></span></h2>
+        </div>
+      </div> 
+    </div> 
+  </header>
+
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <div class="history-container">
+    <button id="historico">HISTÓRICO</button>
+  </div>
+  <script src="script.js">
+  </script>
+</body>
+</html>
